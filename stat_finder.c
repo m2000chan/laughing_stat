@@ -4,6 +4,7 @@
 #include <time.h>
 #include <unistd.h>
 #include <sys/stat.h>
+#include <math.h>
 
 int main(){
 
@@ -12,7 +13,24 @@ int main(){
   struct stat storage;
   stat("thing.txt", &storage);
 
-  printf("File Size: %jd\n", storage.st_size);
+  int truesize = storage.st_size;
+
+  int i = 0;
+
+  while ((truesize % (int)pow(1024, i)) > 0){ //raises the power of 1024 to i
+    i++;
+  }
+
+  float human_read = (truesize / (pow(1024, i)));
+
+  char * size = malloc(2);
+
+  if (i = 0){size = "B");
+  if (i = 1){size = "KB");
+  if (i = 2){size = "MB");
+  if (i = 3){size = "GB");
+
+  printf("File Size: %f%s\n", human_read, size);
 
   printf("\nFinding file permission:\n");
 
@@ -21,5 +39,7 @@ int main(){
   printf("\nFinding last access times:\n");
 
   printf("Last access time: %s\n", ctime(&storage.st_atime));
+
+  return 0;
 
 }
