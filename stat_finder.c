@@ -25,10 +25,10 @@ int main(){
 
   char * size = malloc(2);
 
-  if (i = 0){size = "B");
-  if (i = 1){size = "KB");
-  if (i = 2){size = "MB");
-  if (i = 3){size = "GB");
+  if (i == 0){size = "B";};
+  if (i == 1){size = "KB";};
+  if (i == 2){size = "MB";};
+  if (i == 3){size = "GB";};
 
   printf("File Size: %f%s\n", human_read, size);
 
