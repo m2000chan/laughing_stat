@@ -34,7 +34,22 @@ int main(){
 
   printf("\nFinding file permission:\n");
 
-  printf("File permissions: %d\n", storage.st_mode);
+  int permissions = storage.st_mode % 511;
+
+    /*
+  char * perm = malloc(9);
+    
+    if (permissions % 10 == 7){strcat("rwx", perm)};
+    if (permissions % 10 == 7){strcat("rwx", perm)};
+    if (permissions % 10 == 7){strcat("rwx", perm)};
+    if (permissions % 10 == 7){strcat("rwx", perm)};
+    if (permissions % 10 == 7){strcat("rwx", perm)};
+    if (permissions % 10 == 7){strcat("rwx", perm)};
+    if (permissions % 10 == 7){strcat("rwx", perm)};
+    
+    */
+  
+  printf("File permissions: %o\n", storage.st_mode % 511);
 
   printf("\nFinding last access times:\n");
 
